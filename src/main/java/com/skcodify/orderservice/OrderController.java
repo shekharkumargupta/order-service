@@ -10,7 +10,8 @@ import java.util.List;
 @RequestMapping("/orders")
 public class OrderController {
 
-    private OrderService orderService;
+
+    private final OrderService orderService;
 
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
@@ -22,7 +23,7 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Order> findById(String id){
+    public ResponseEntity<Order> findById(@PathVariable String id){
         return ResponseEntity.ok(orderService.findById(id));
     }
 

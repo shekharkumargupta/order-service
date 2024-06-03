@@ -2,12 +2,14 @@ package com.skcodify.orderservice.services;
 
 import com.github.javafaker.Faker;
 import com.skcodify.orderservice.Order;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     private Map<String, Order> orders;
