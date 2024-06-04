@@ -12,4 +12,6 @@ public interface OrderService {
     Order create(Order order);
 
     Order remove(String id);
+
+    Order addProduct(String id, Long productId);
 }

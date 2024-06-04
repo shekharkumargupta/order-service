@@ -1,5 +1,6 @@
-package com.skcodify.orderservice;
+package com.skcodify.orderservice.controllers;
 
+import com.skcodify.orderservice.Order;
 import com.skcodify.orderservice.services.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,13 @@ public class OrderController {
     @GetMapping("/{id}")
     public ResponseEntity<Order> findById(@PathVariable String id){
         return ResponseEntity.ok(orderService.findById(id));
+    }
+
+    @GetMapping("/{id}/{productId}")
+    public ResponseEntity<Order> addProduct(@PathVariable String id,
+                                            @PathVariable Long productId){
+        Order order = orderService.addProduct(id, productId);
+        return ResponseEntity.ok(order);
     }
 
     @PostMapping
